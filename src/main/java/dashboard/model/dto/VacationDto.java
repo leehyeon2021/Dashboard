@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data @Builder
 public class VacationDto {
-    Integer vcode;
-    String vstart;
-    String vend;
-    String vreason;
-    Integer scode;
+   private Integer vcode;
+   private String vstart;
+   private String vend;
+   private String vreason;
+   private Integer scode;
 }
