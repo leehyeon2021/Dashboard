@@ -63,9 +63,16 @@
 
 #left .inputline{
     padding-bottom: 10px;
+
+}
+#left .inputline .inputlineTop{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+
 }
 
-#left .inputline > input , #left > button{
+#left .inputline .inputlineTop > input , #left > button{
     border: 1px solid #eeeeee;
     padding: 10px 20px;
     border-radius: 10px;
@@ -94,14 +101,17 @@
 
 }
 
-#left .inputline > input{
+#left .inputline .inputlineTop > input{
     background-color: #f8fafc;
     padding: 10px 20px;
+    width: 120px;
 }
 
-#left .inputline > button{
+#left .inputline .inputlineTop > button{
     background-color: #9333ea;
     padding: 9px 10px;
+    margin-left: 10px;
+    width: 60px;
     color: white;
     border: none;
 }
