@@ -23,10 +23,12 @@
         <div id="left">
             <div class="inputline">
                 <h3 id="left_title">부서관리</h3>
-                <input class="department" placeholder="신규 부서명 입력">
-                <button onclick="departmentAdd()">추가</button>
+                <div class="inputlineTop">
+                    <input class="dname" placeholder="신규 부서명 입력">
+                    <button onclick="dPost()">추가</button>
+                </div>
             </div>
-            <table>
+            <table id = "departmentTable">
                 <thead>
                 <tr>
                     <th>
@@ -39,41 +41,6 @@
                 </thead>
 
                 <tbody>
-                <tr>
-                    <td>
-                        <div class="dpt">
-                            <span>개발팀</span>
-                            <div class="dptbtn">
-                                <button class="update">수정</button>
-                                <button class="delete">삭제</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="dpt">
-                            <span>디자인팀</span>
-                            <div class="dptbtn">
-                                <button class="update">수정</button>
-                                <button class="delete">삭제</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="dpt">
-                            <span>기획팀</span>
-                            <div class="dptbtn">
-                                <button class="update">수정</button>
-                                <button class="delete">삭제</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
                 </tbody>
 
 
