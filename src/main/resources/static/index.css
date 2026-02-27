@@ -1,0 +1,344 @@
+/***************************전체************************/
+
+#wrap{
+    width: 1400px;
+    height: 1500px;
+    margin: 0 auto;
+    background-color: #f1f5f9;
+    padding: 50px;
+}
+
+#title , #subtitle{text-align: center;}
+
+
+#subtitle{color: gray;
+    font-size: medium;
+    margin-top: -15px;
+    margin-bottom: 35px;}
+
+#all{display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/***************************left************************/
+
+#left{
+    width: 20%;
+    height: 1350px;
+    border: 1px solid #eeeeee;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 30px;
+
+}
+
+#left table{
+    width: 100%;
+
+}
+#left_title{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 10px;
+    text-align: start;
+}
+
+
+#left > .inputline > input , button{
+    align-items: start;
+}
+
+
+.th-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #f8fafc;
+}
+
+
+
+#left .inputline{
+    padding-bottom: 10px;
+}
+
+#left .inputline > input , #left > button{
+    border: 1px solid #eeeeee;
+    padding: 10px 20px;
+    border-radius: 10px;
+
+}
+
+
+.dpt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+
+.dpt span{
+    margin-left: 6px;
+}
+
+
+#left tbody td{
+    width: 100%;
+
+}
+
+#left .inputline > input{
+    background-color: #f8fafc;
+    padding: 10px 20px;
+}
+
+#left .inputline > button{
+    background-color: #9333ea;
+    padding: 9px 10px;
+    color: white;
+    border: none;
+}
+
+#left > table th{
+
+    padding : 10px;
+}
+
+/***************************center************************/
+#center{
+    width: 50%;
+    height: 1350px;
+    border: 1px solid #eeeeee;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 30px;
+}
+
+
+
+.center_title{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 10px;
+    text-align: start;
+}
+
+
+#center_line1{
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+    align-items: center;
+}
+
+#center_line1 .staffName , .staffLank{
+    padding: 10px 13px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background-color: #f8fafc;
+    width: 260px;
+}
+
+#center_line2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+
+}
+
+#center_line2 .imgselect{
+    width: 290px;
+    height: 100px;
+}
+
+
+
+#department{
+    padding: 10px 75px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background-color: #f8fafc;
+}
+
+
+
+
+#center_line3{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#center_line3 button{
+    margin-right: 10px;
+    background-color: #4f47e5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+
+
+}
+
+
+/**********center_bottom***********/
+#center_bottom .staffTable{
+    width: 600px;
+}
+
+#center_bottom .staffTable th{
+    background-color: #f8fafc;
+}
+
+#center_bottom > .staffTable thead th{
+    text-align: center;
+    padding: 10px;
+}
+
+#center_bottom > .staffTable td img , button{
+    text-align: center;
+    border-radius: 10px;
+}
+
+td button{
+    border: none;
+    background-color: white;
+}
+
+td .update{ color:blue;}
+td .delete{ color: red;}
+
+
+
+#center_bottom tbody td{
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#center_bottom tbody img{
+    width: 100px; height: 100px;
+}
+
+
+/***************************right************************/
+#right{
+    width: 100%;
+    height: 1350px;
+    border: 1px solid #eeeeee;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 30px;
+
+}
+
+#right_top_title , #right_bottom_title{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 10px;
+    text-align: start;
+}
+
+#right_top .staffselect{
+    padding: 10px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background-color: #f8fafc;
+    width: 100%;
+}
+
+#right_top{
+    color: gray;
+    font-size: 15px;
+}
+
+#right_top .right_topline1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#right_top .right_topline2{
+    display: flex;
+    justify-content: space-between;
+    width: 226px;
+
+}
+
+#right_top .right_topline3{
+    display: flex;
+}
+
+#right_top .right_topline3 input{
+    padding: 10px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background-color: #f8fafc;
+    width: 100%;
+
+}
+
+#right_top .right_topline3 input.startdate {
+    margin-right: 20px;}
+
+
+#right_top .right_topline4 input{
+    padding: 10px 40px;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    background-color: #f8fafc;
+    width: 275px;
+
+}
+
+#right_top .right_topline5{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+
+#right_top .right_topline5 button{
+    margin-right: 10px;
+    background-color: #0c9386;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+
+#right #right_bottom .box{
+    border: 1px solid #eeeeee;
+    background-color: #f1f5f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px;
+
+}
+
+.box .line1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box .line1 button{
+    border-radius: 10px;
+    background-color: #94a3b8;
+    color: white;
+    padding: 5px;
+    border: none;
+}
+
+.box .line2 , .box .line3{
+    color: gray;
+}
