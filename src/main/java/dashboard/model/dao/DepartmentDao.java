@@ -14,7 +14,7 @@ import java.util.List;
 public class DepartmentDao {
     public DepartmentDao(){connect();}
     private String url = "jdbc:mysql://localhost:3306/practice4DB";
-    private String user = "root"; private String pw = "0950";
+    private String user = "root"; private String pw = "1234";
     // 연동 인터페이스 변수 선언
     private Connection conn;
     // 연동 함수 정의, dao에 생성자에서 함수실행{dao 실글톤이 생성되면서 db연동 실행}
