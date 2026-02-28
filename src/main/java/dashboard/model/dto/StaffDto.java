@@ -14,4 +14,5 @@ public class StaffDto {
     private String sname;
     private String srank;
     private Integer dcode;
+    private String dname;
 }

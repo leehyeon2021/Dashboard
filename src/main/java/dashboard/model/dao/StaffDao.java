@@ -19,14 +19,14 @@ public class StaffDao {
     // ======= 데이터베이스 연동 =======
     // 1. 연동한 db서버의 정보
     private String url = "jdbc:mysql://localhost:3306/practice4DB";
-    private String user = "root";   private String password = "0950";
+    private String user = "root";   private String password = "1234";
     // 2. 연동 인터페이스 변수 선언
-    private Connection conn; //선언 만! (아래 메소드 들에서 사용 많이 함.)
+    private Connection conn;
     // 3. 연동 함수 선언
     private void connect(){
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver"); // mysql 라이브러리 객체 메모리 할당/불러오기
-            conn = DriverManager.getConnection( url , user , password ); // mysql 구현체로 db 연동 후 연동 인터페이스에 반환.
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection( url , user , password );
             System.out.println("[성공] staff 연동 성공");
         }catch (Exception e){ System.out.println("[경고] 데이터베이스 연동 실패: 관리자에게 문의"); }
     }
@@ -49,13 +49,14 @@ public class StaffDao {
     public List<StaffDto> sFindAll(){
         List<StaffDto> list = new ArrayList<>();
         try{
-            String sql = "SELECT*FROM staff";
+            String sql = "SELECT s.scode , s.sname , s.srank , s.dcode , d.dname FROM staff s " +
+                    "LEFT JOIN department d ON s.dcode = d.dcode";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 StaffDto staffDto1 = new StaffDto(
                         rs.getInt("scode"), rs.getString("sname"),
-                        rs.getString("srank"), rs.getInt("dcode")
+                        rs.getString("srank"), rs.getInt("dcode"), rs.getString("dname")
                 );
                 list.add(staffDto1);
             }

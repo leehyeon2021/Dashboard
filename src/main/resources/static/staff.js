@@ -3,22 +3,28 @@ console.log("staff.js open");
 // 2. 사원 전체 목록
 const sFindAll = async () =>{
     const tbody = document.querySelector(".staffTable tbody");
-    let html ="";
+    const staffselect = document.querySelector(".staffselect");
+    let html =``;
+    let shtml = `<option value="disabled">휴가 신청 사원을 선택하세요.</option>`;
+    try {
         const response = await axios.get("/dashboard/staff");
         const data = response.data;
-        for( let i=0; i<=data.length-1;i++){
+        for (let i = 0; i <= data.length - 1; i++) {
             const staff = data[i];
-        html += `<tr>
+            html += `<tr>
                     <td>${staff.sname}</td>
-                    <td>${staff.dcode}</td>
+                    <td>${staff.dname}</td>
                     <td>${staff.srank}</td>
                     <td>
-                        <button onclick="sUpdate()" class="update">수정</button>
-                        <button onclick="sDelete()" class="delete">삭제</button>
+                        <button onclick="sUpdate(${staff.scode})" class="update">수정</button>
+                        <button onclick="sDelete(${staff.scode})" class="delete">삭제</button>
                     </td>
                 </tr>`;
-        }; // dcode를 dname으로 바꾸는 작업 필요함
+            shtml += `<option value="${staff.scode}">${staff.sname}</option>`;
+        }
         tbody.innerHTML = html;
+        staffselect.innerHTML = shtml;
+    }catch (e){console.log(e);}
 }
 sFindAll();
 
@@ -41,10 +47,10 @@ const sPost = async () => {
 }
 
 // 3. 사원 수정
-const sUpdate = async ( sno ) => {
+const sUpdate = async ( scode ) => {
     const sname = prompt("수정할 사원명을 입력하세요.");
     const srank = prompt("수정할 직급명을 입력하세요.");
-    const obj = { sno, sname , srank };
+    const obj = { scode, sname , srank };
     const response = await axios.put("/dashboard/staff", obj);
     const data = response.data;
     if(data== true){
@@ -54,8 +60,8 @@ const sUpdate = async ( sno ) => {
 }
 
 // 4. 사원 삭제
-const sDelete = async ( sno ) => {
-    const response = await axios.delete(`/dashboard/staff?sno=${ sno }`);
+const sDelete = async ( scode ) => {
+    const response = await axios.delete(`/dashboard/staff?scode=${ scode }`);
     const data = response.data;
     if( data == true ){
         alert("삭제 성공");
