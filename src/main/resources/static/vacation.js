@@ -38,24 +38,20 @@ const vPost = async () =>{
     const vend = vendInput.value;
     const vreasonInput = document.querySelector('.reason');
     const vreason = vreasonInput.value;
-    console.log("111 여기 됩니다")
     let obj = { scode, vstart, vend, vreason };
     try {
         const response = await axios.post(`/dashboard/vacation`, obj);
         const data = response.data;
-console.log("222 여기 됩니다")
         if (data === true) {
             alert("등록성공");
             scodeInput.value = '';            vstartInput.value = '';
             vendInput.value = '';            vreasonInput.value = '';
-            console.log("333 여기 됩니다")
             vFindAll();
         } else {
             alert("등록실패");
         }
     } catch (e) {
         console.error(e);
-        console.log("뭔가 잘못됨")
     }
 }
 
