@@ -50,17 +50,16 @@ const vPost = async () =>{
         } else {
             alert("등록실패");
         }
-    } catch (e) {
-        console.error(e);
-    }
+    } catch (e) {console.error(e); }
 }
 
 const vDelete = async ( dcode ) =>{
-
-    const response = await axios.delete(`/dashboard/department?dcode=${dcode}`);
-    const data = response.data;
-    if(data == true){
-        alert("삭제성공")
-        dFindAll();
-    }else{alert("삭제실패")}
+    try {
+        const response = await axios.delete(`/dashboard/department?vcode=${vcode}`);
+        const data = response.data;
+        if(data == true){
+            alert("삭제성공")
+            dFindAll();
+        }else{alert("삭제실패")}
+    } catch (e) {console.error(e); }
 }
