@@ -58,7 +58,7 @@ const vPost = async () =>{
 
 const vDelete = async ( vcode ) =>{
 
-    const response = await axios.delete(`/dashboard/department?vcode=${vcode}`);
+    const response = await axios.delete(`/dashboard/vacation?vcode=${vcode}`);
     const data = response.data;
     if(data == true){
         alert("삭제성공")

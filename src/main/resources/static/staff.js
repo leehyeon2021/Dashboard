@@ -71,6 +71,7 @@ const sDelete = async ( scode ) => {
         if( data == true ){
             alert("삭제 성공");
             sFindAll();
+            vFindAll();
         }else{alert("삭제 실패")}
     }catch (e){console.error(e);}
 }
