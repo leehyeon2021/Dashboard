@@ -14,4 +14,5 @@ public class VacationDto {
    private String vend;
    private String vreason;
    private Integer scode;
+   private String sname;
 }

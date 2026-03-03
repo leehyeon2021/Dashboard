@@ -18,7 +18,7 @@ public class VacationDao {
     // ======= 데이터베이스 연동 =======
     // 1. 연동한 db서버의 정보
     private String url = "jdbc:mysql://localhost:3306/practice4DB";
-    private String user = "root";   private String password = "1234";
+    private String user = "root";   private String password = "0950";
     // 2. 연동 인터페이스 변수 선언
     private Connection conn; //선언 만! (아래 메소드 들에서 사용 많이 함.)
     // 3. 연동 함수 선언
@@ -51,11 +51,11 @@ public class VacationDao {
     public List<VacationDto> vFindAll() {
         List<VacationDto> list = new ArrayList<>();
         try {
-            String sql = "select * from vacation";
+            String sql = "select v.*, s.sname from vacation v join staff s on v.scode = s.scode";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                VacationDto vacationDto = new VacationDto(rs.getInt("vcode"),rs.getString("vstart"),rs.getString("vend"),rs.getString("vreason"),rs.getInt("scode"));
+                VacationDto vacationDto = new VacationDto(rs.getInt("vcode"),rs.getString("vstart"),rs.getString("vend"),rs.getString("vreason"),rs.getInt("scode"), rs.getString("sname"));
                 list.add(vacationDto);
             }
 

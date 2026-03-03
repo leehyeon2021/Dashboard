@@ -1,19 +1,20 @@
 console.log("vacation.js exe")
 
 const vFindAll = async () => {
-    const tbody = document.querySelector("#right_bottom_inner");
-    let html = "";
-    const response = await axios.get("/dashboard/vacation");
+    try{
+        const response = await axios.get("/dashboard/vacation");
+        const data = response.data;
 
-    const data = response.data;
-    for (let i = 0; i <= data.length-1; i++){
-        const vacation = data[i];
-        let staffName = ""; // 사원명을 가져오기위한 변수
+        const tbody = document.querySelector("#right_bottom_inner");
+        let html = "";
 
-        html += `
+        for (let i = 0; i < data.length; i++) {
+            const vacation = data[i];
+            html += `
                 <div class="box">
                     <div class="line1">
-                        <div>${staffName}</div><button class="vacationDel" onclick="vDelete(${vacation.vcode})">신청취소</button>
+                        <div>${vacation.sname}</div>
+                        <button class="vacationDel" onclick="vDelete(${vacation.vcode})">신청취소</button>
                     </div>
                     <div class="line2">
                         ${vacation.vstart}~${vacation.vend}
@@ -23,9 +24,11 @@ const vFindAll = async () => {
                     </div>
                 </div>
         `;
-
+        }
+        tbody.innerHTML = html;
+    }catch (e) {
+        console.error(e);
     }
-    tbody.innerHTML = html;
 }
 vFindAll();
 
@@ -38,28 +41,28 @@ const vPost = async () =>{
     const vend = vendInput.value;
     const vreasonInput = document.querySelector('.reason');
     const vreason = vreasonInput.value;
-    let obj = { scode, vstart, vend, vreason };
     try {
-        const response = await axios.post(`/dashboard/vacation`, obj);
+        const response = await axios.post(`/dashboard/department?dname=${dname}`);
         const data = response.data;
+
         if (data === true) {
             alert("등록성공");
-            scodeInput.value = '';            vstartInput.value = '';
-            vendInput.value = '';            vreasonInput.value = '';
-            vFindAll();
+            dnameInput.value = '';
+            dFindAll();
         } else {
             alert("등록실패");
         }
-    } catch (e) {console.error(e); }
+    } catch (e) {
+        console.error(e);
+    }
 }
 
-const vDelete = async ( dcode ) =>{
-    try {
-        const response = await axios.delete(`/dashboard/department?vcode=${vcode}`);
-        const data = response.data;
-        if(data == true){
-            alert("삭제성공")
-            dFindAll();
-        }else{alert("삭제실패")}
-    } catch (e) {console.error(e); }
+const vDelete = async ( vcode ) =>{
+
+    const response = await axios.delete(`/dashboard/department?vcode=${vcode}`);
+    const data = response.data;
+    if(data == true){
+        alert("삭제성공")
+        vFindAll();
+    }else{alert("삭제실패")}
 }
