@@ -65,5 +65,6 @@ const dDelete = async ( dcode ) =>{
     if(data == true){
         alert("삭제성공")
         dFindAll();
+        sFindAll();
     }else{alert("삭제실패")}
 }
