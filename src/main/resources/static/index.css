@@ -10,6 +10,7 @@
 
 #title , #subtitle{text-align: center;}
 
+button , select , .startdate , .enddate {cursor: pointer; }
 
 #subtitle{color: gray;
     font-size: medium;

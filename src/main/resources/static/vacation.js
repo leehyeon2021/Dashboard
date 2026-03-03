@@ -7,7 +7,7 @@ const vFindAll = async () => {
 
         const tbody = document.querySelector("#right_bottom_inner");
         let html = "";
-
+d
         for (let i = 0; i < data.length; i++) {
             const vacation = data[i];
             html += `
@@ -53,7 +53,7 @@ const vPost = async () =>{
         } else {
             alert("등록실패");
         }
-    } catch (e) {console.error(e); }
+    } catch (e) { console.error(e); }
 }
 
 const vDelete = async ( vcode ) =>{

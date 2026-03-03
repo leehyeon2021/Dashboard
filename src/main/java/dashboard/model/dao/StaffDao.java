@@ -50,7 +50,7 @@ public class StaffDao {
         List<StaffDto> list = new ArrayList<>();
         try{
             String sql = "SELECT s.scode , s.sname , s.srank , s.dcode , d.dname FROM staff s " +
-                    "LEFT JOIN department d ON s.dcode = d.dcode";
+                         "LEFT JOIN department d ON s.dcode = d.dcode";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
