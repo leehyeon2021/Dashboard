@@ -9,12 +9,7 @@ const vFindAll = async () => {
     for (let i = 0; i <= data.length-1; i++){
         const vacation = data[i];
         let staffName = ""; // 사원명을 가져오기위한 변수
-        for(let j = 0; j < staff.length; j++){ // 사원 배열을 순회
-            if(vacation.scode == staff[j].scode){ // 일치하는 사원코드을 찾으면
-                staffName = staff[j].staffName; //사원명 저장
-                break;
-            }
-        }
+
         html += `
                 <div class="box">
                     <div class="line1">
@@ -43,19 +38,24 @@ const vPost = async () =>{
     const vend = vendInput.value;
     const vreasonInput = document.querySelector('.reason');
     const vreason = vreasonInput.value;
+    console.log("111 여기 됩니다")
+    let obj = { scode, vstart, vend, vreason };
     try {
-        const response = await axios.post(`/dashboard/department?dname=${dname}`);
+        const response = await axios.post(`/dashboard/vacation`, obj);
         const data = response.data;
-
+console.log("222 여기 됩니다")
         if (data === true) {
             alert("등록성공");
-            dnameInput.value = '';
-            dFindAll();
+            scodeInput.value = '';            vstartInput.value = '';
+            vendInput.value = '';            vreasonInput.value = '';
+            console.log("333 여기 됩니다")
+            vFindAll();
         } else {
             alert("등록실패");
         }
     } catch (e) {
         console.error(e);
+        console.log("뭔가 잘못됨")
     }
 }
 

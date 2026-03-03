@@ -24,7 +24,7 @@ const sFindAll = async () =>{
         }
         tbody.innerHTML = html;
         staffselect.innerHTML = shtml;
-    }catch (e){console.log(e);}
+    }catch (e){console.error(e);}
 }
 sFindAll();
 
@@ -37,13 +37,15 @@ const sPost = async () => {
     const dcodeInput = document.querySelector("#department");
     const dcode = dcodeInput.value;
     const obj = { sname , srank , dcode };
-    const response = await axios.post( "/dashboard/staff" , obj);
-    const data = response.data;
-    if(data == true ){
-        alert("등록 성공");
-        snameInput.value=''; srankInput.value=''; dcodeInput.value='';
-        sFindAll();
-    }else{alert("등록 실패")}  
+    try {
+        const response = await axios.post( "/dashboard/staff" , obj);
+        const data = response.data;
+        if(data == true ){
+            alert("등록 성공");
+            snameInput.value=''; srankInput.value=''; dcodeInput.value='';
+            sFindAll();
+        }else{alert("등록 실패")}
+    }catch (e){console.error(e);}
 }
 
 // 3. 사원 수정
@@ -51,20 +53,24 @@ const sUpdate = async ( scode ) => {
     const sname = prompt("수정할 사원명을 입력하세요.");
     const srank = prompt("수정할 직급명을 입력하세요.");
     const obj = { scode, sname , srank };
-    const response = await axios.put("/dashboard/staff", obj);
-    const data = response.data;
-    if(data== true){
-        alert("수정이 완료되었습니다.")
-        sFindAll();
-    }else{alert("수정에 실패하였습니다.")}
+    try {
+        const response = await axios.put("/dashboard/staff", obj);
+        const data = response.data;
+        if(data== true){
+            alert("수정이 완료되었습니다.")
+            sFindAll();
+        }else{alert("수정에 실패하였습니다.")}
+    }catch (e){console.error(e);}
 }
 
 // 4. 사원 삭제
 const sDelete = async ( scode ) => {
-    const response = await axios.delete(`/dashboard/staff?scode=${ scode }`);
-    const data = response.data;
-    if( data == true ){
-        alert("삭제 성공");
-        sFindAll();
-    }else{alert("삭제 실패")}
+    try {
+        const response = await axios.delete(`/dashboard/staff?scode=${ scode }`);
+        const data = response.data;
+        if( data == true ){
+            alert("삭제 성공");
+            sFindAll();
+        }else{alert("삭제 실패")}
+    }catch (e){console.error(e);}
 }
