@@ -41,20 +41,19 @@ const vPost = async () =>{
     const vend = vendInput.value;
     const vreasonInput = document.querySelector('.reason');
     const vreason = vreasonInput.value;
+    let obj = { scode, vstart, vend, vreason };
     try {
-        const response = await axios.post(`/dashboard/department?dname=${dname}`);
+        const response = await axios.post(`/dashboard/vacation`, obj);
         const data = response.data;
-
         if (data === true) {
             alert("등록성공");
-            dnameInput.value = '';
-            dFindAll();
+            scodeInput.value = '';            vstartInput.value = '';
+            vendInput.value = '';            vreasonInput.value = '';
+            vFindAll();
         } else {
             alert("등록실패");
         }
-    } catch (e) {
-        console.error(e);
-    }
+    } catch (e) {console.error(e); }
 }
 
 const vDelete = async ( vcode ) =>{
